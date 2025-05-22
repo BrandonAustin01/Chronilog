@@ -1,0 +1,9 @@
+[tool.pytest.ini_options]
+pythonpath = [
+  "chronilog",
+  "."
+]
+addopts = "-ra"
+
+[tool.poetry.scripts]
+test = "pytest"
