@@ -22,8 +22,7 @@ def ChroniLog(
     level: int = None,
     console_formatter: logging.Formatter = None,
     file_formatter: logging.Formatter = None,
-    use_cache: bool = True,
-    enable_console: bool = False  # 🔹 New: toggle console logging
+    use_cache: bool = True
 ) -> logging.Logger:
     """
     Initializes and returns a Chronilog logger instance.
@@ -34,7 +33,6 @@ def ChroniLog(
         console_formatter (logging.Formatter, optional): Override console format.
         file_formatter (logging.Formatter, optional): Override file format.
         use_cache (bool): If True, return cached logger if already initialized.
-        enable_console (bool): If True, attach console output. Default is False.
 
     Returns:
         logging.Logger: Configured logger instance.
@@ -46,20 +44,24 @@ def ChroniLog(
     logger.setLevel(level or get_log_level())
     logger.propagate = False
 
+    # Clear any orphaned handlers if not using cache
     if not use_cache:
         logger.handlers.clear()
 
     if not logger.handlers:
-        # 🟩 File Handler (Always added)
-        file_handler = get_file_handler()
-        file_handler.setFormatter(file_formatter or build_file_formatter())
-        logger.addHandler(file_handler)
+        # Console Handler
+        console_handler = build_console_handler()
+        if console_formatter:
+            console_handler.setFormatter(console_formatter)
+        else:
+            console_handler.setFormatter(None)  # Rich formats internally
+        logger.addHandler(console_handler)
 
-        # 🟨 Optional Console Handler
-        if enable_console:
-            console_handler = build_console_handler()
-            console_handler.setFormatter(console_formatter or None)  # Rich handles its own formatting
-            logger.addHandler(console_handler)
+        # File Handler
+        file_handler = get_file_handler()
+        if file_formatter:
+            file_handler.setFormatter(file_formatter)
+        logger.addHandler(file_handler)
 
     if use_cache:
         _loggers[name] = logger
