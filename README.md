@@ -355,8 +355,6 @@ myapp/
 
 ---
 
----
-
 ## 🧑‍💻 Chronilog CLI
 
 Chronilog includes a powerful CLI to help manage configuration and setup.
@@ -421,9 +419,6 @@ Chronilog's CLI is expanding soon with:
 - `chronilog diagnostics` — full environment + logger audit  
 - `chronilog view` — visual JSON log viewer with filters  
 - Profile-based config switching
-
----
-
 
 ---
 
