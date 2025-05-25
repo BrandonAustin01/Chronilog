@@ -19,25 +19,88 @@ DEFAULT_CONFIG = {
     "filter_module_prefix": "",
     "enable_rotation": True,
     "console_output": "stdout",
-    "log_format": "default"
+    "log_format": "default",
+
+    # === Sentry Config ===
+    "enable_sentry": False,
+    "sentry_dsn": "",
+    "sentry_level": "ERROR",
+    "sentry_traces_sample_rate": 0.0,
 }
+
 
 FIELD_COMMENTS = {
-    "log_path": "# 📁 Path to your log file",
-    "log_level": "# 🪵 Minimum logging level (e.g., DEBUG, INFO)",
-    "log_max_mb": "# 📦 Max file size before rotating (MB)",
-    "log_backup_count": "# 🔁 Number of rotated backups to keep",
-    "enable_console": "# 🖥️ Output logs to console?",
-    "emoji_fallback": "# 😃 Replace emoji with safe characters?",
-    "wipe_log_on_startup": "# 🧹 Wipe log file every run?",
-    "timestamp_format": "# ⏱️ Timestamp format for logs",
-    "disable_rich_format": "# ❌ Use plain text instead of Rich formatting?",
-    "filter_module_prefix": "# 🔍 Only log modules matching this prefix",
-    "enable_rotation": "# 🔄 Enable rotating log files?",
-    "console_output": "# 📤 Console output stream (stdout or stderr)",
-    "log_format": "# 📄 Format: 'default' or 'json'",
-}
+    "log_path": (
+        "# 📁 Path to your log file\n"
+        "# Can be relative or absolute. Will be auto-created if missing."
+    ),
+    "log_level": (
+        "# 🪵 Minimum logging level\n"
+        "# Options: DEBUG, INFO, SUCCESS, WARNING, ERROR, CRITICAL\n"
+        "# Controls which messages get logged."
+    ),
+    "log_max_mb": (
+        "# 📦 Max log file size in megabytes\n"
+        "# When this size is exceeded, log rotation begins."
+    ),
+    "log_backup_count": (
+        "# 🔁 Number of rotated log files to keep\n"
+        "# Older files beyond this count will be deleted."
+    ),
+    "enable_console": (
+        "# 🖥️ Whether to also log to the console\n"
+        "# If false, logs are written to file only."
+    ),
+    "emoji_fallback": (
+        "# 😃 Replace emojis with safe ASCII characters\n"
+        "# Useful for environments that can't render Unicode."
+    ),
+    "wipe_log_on_startup": (
+        "# 🧹 Clear the log file every time the app starts\n"
+        "# WARNING: This deletes previous log history."
+    ),
+    "timestamp_format": (
+        "# ⏱️ Timestamp format for logs\n"
+        "# Uses Python's datetime format (e.g., %Y-%m-%d %H:%M:%S)."
+    ),
+    "disable_rich_format": (
+        "# ❌ Disable all rich/colored output\n"
+        "# If true, plain text formatting is used for console logs."
+    ),
+    "filter_module_prefix": (
+        "# 🔍 Only log messages from modules starting with this prefix\n"
+        "# Leave empty to log everything."
+    ),
+    "enable_rotation": (
+        "# 🔄 Enable rotating log files based on size\n"
+        "# Works with 'log_max_mb' and 'log_backup_count'."
+    ),
+    "console_output": (
+        "# 📤 Which output stream to use for console logs\n"
+        "# Options: stdout, stderr"
+    ),
+    "log_format": (
+        "# 📄 Format style for log output\n"
+        "# Options: 'default' (styled), or 'json' (structured)"
+    ),
+        "enable_sentry": (
+        "# 🛰️ Enable Sentry error tracking integration\n"
+        "# Set to true to activate Sentry logging (requires sentry-sdk)."
+    ),
+    "sentry_dsn": (
+        "# 🔗 Your Sentry DSN URL\n"
+        "# You can get this from your Sentry project settings."
+    ),
+    "sentry_level": (
+        "# 🧭 Minimum level to send logs to Sentry\n"
+        "# Default is ERROR. Options: DEBUG, INFO, WARNING, ERROR, CRITICAL"
+    ),
+    "sentry_traces_sample_rate": (
+        "# 📊 Trace sampling rate for performance monitoring\n"
+        "# 0.0 disables tracing. Use >0.0 to enable transaction capture."
+    ),
 
+}
 
 def chronilog_init(dry_run: bool = False):
     console.print("\n[bold cyan]Chronilog Config Wizard[/bold cyan] 🛠️")

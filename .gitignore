@@ -1,0 +1,64 @@
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+logs/
+*.sqlite3
+*.db
+
+# Virtual environments
+.env/
+.venv/
+venv/
+ENV/
+env/
+pip-selfcheck.json
+
+# Test & coverage
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.cache/
+.junit.xml
+coverage.xml
+
+# Packaging
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# MyPy & Pyright
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env/config
+.env
+.chronilog.toml
+*.bak
+*.swp
+*.old
+
+# Lock files (if you use Poetry or Pipenv)
+poetry.lock
+Pipfile.lock
+
+# Markdown preview artifacts
+*.preview.html

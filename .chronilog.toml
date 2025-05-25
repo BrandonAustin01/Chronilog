@@ -11,6 +11,12 @@
 level = "DEBUG"
 log_format = "default"  # Options: default, json
 
+# Sentry
+enable_sentry = false
+sentry_dsn = "https://<your_public_key>@o123456.ingest.sentry.io/1234567"
+sentry_level = "ERROR"
+sentry_traces_sample_rate = 0.0
+
 # Whether to also output logs to the console
 # Default: false (file-only unless overridden)
 enable_console = false
