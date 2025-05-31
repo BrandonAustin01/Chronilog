@@ -17,6 +17,7 @@ checkpoints/
 __pycache__/
 *.py[cod]
 *$py.class
+check_wheel/
 
 # ====================================
 # ⚙️ Virtual environments
