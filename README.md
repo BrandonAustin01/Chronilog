@@ -23,7 +23,7 @@
 
 ```bash
 # Clone and install in editable mode (during development)
-git clone https://github.com/yourname/chronilog
+git clone https://github.com/BrandonAustin01/chronilog
 cd chronilog
 pip install -e .
 ```
