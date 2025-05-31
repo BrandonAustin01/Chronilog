@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chronilog"
+version = "0.1.7"
+description = "A clean, customizable logging package with rich formatting, diagnostics, and rotating file output."
+authors = [
+  { name = "Brandon McKinney", email = "brandonmckinney01@icloud.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = ["logging", "rich", "diagnostics", "file logging", "cli", "sentry"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: System :: Logging"
+]
+dependencies = [
+  "rich>=13.0.0",
+  "python-dotenv>=1.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/BrandonAustin01/Chronilog"
+Repository = "https://github.com/BrandonAustin01/Chronilog"
+Issues = "https://github.com/BrandonAustin01/Chronilog/issues"
+
+[project.scripts]
+chronilog = "chronilog.cli.main:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["chronilog*"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "chronilog",
+  "."
+]
+addopts = "-ra"

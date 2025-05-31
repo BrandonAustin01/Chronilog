@@ -1,0 +1,86 @@
+# ====================================
+# 🔥 FULL CLEAN: Python build outputs
+# ====================================
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+*.whl
+*.tar.gz
+*.zip
+*.manifest
+*.spec
+checkpoints/
+.checkpoints/
+.cache/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ====================================
+# ⚙️ Virtual environments
+# ====================================
+.env/
+.venv/
+venv/
+ENV/
+env/
+pip-selfcheck.json
+
+# ====================================
+# 🧪 Testing & coverage
+# ====================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+.junit.xml
+
+# ====================================
+# 🧠 Type-checking
+# ====================================
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# ====================================
+# 🧑‍💻 Editor settings
+# ====================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ====================================
+# 🗂️ OS junk
+# ====================================
+.DS_Store
+Thumbs.db
+
+# ====================================
+# 🔐 Config / local env
+# ====================================
+.env
+.chronilog.toml
+*.bak
+*.swp
+*.old
+
+# ====================================
+# 🔒 Lock files
+# ====================================
+poetry.lock
+Pipfile.lock
+
+# ====================================
+# 📚 Docs / misc
+# ====================================
+*.log
+logs/
+*.sqlite3
+*.db
+*.preview.html
+usage.txt
